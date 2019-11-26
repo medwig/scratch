@@ -1,0 +1,28 @@
+name: hello
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: hello
+        id: hello
+        uses: actions/hello-world-docker-action@master
+        with:
+          who-to-greet: 'Mona the Octocat: $GITHUB_REF, $GITHUB_SHA'
+
+  helloworld:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo Hello world $GITHUB_REF, $GITHUB_SHA
+        #        env:
+        #          GITHUB_REF: The
+        #          Last_Name: Octocat
