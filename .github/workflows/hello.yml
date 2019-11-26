@@ -18,6 +18,8 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat: $GITHUB_REF, $GITHUB_SHA'
 
+  helloworld:
+    runs-on: ubuntu-latest
     steps:
       - name: Hello world
         run: echo Hello world $GITHUB_REF, $GITHUB_SHA
