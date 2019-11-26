@@ -17,3 +17,10 @@ jobs:
         uses: actions/hello-world-docker-action@master
         with:
           who-to-greet: 'Mona the Octocat: $GITHUB_REF, $GITHUB_SHA'
+
+    steps:
+      - name: Hello world
+        run: echo Hello world $GITHUB_REF, $GITHUB_SHA
+        #        env:
+        #          GITHUB_REF: The
+        #          Last_Name: Octocat
