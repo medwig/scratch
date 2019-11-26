@@ -2,13 +2,18 @@ name: branch-cleanup
 on:
   pull_request:
     branches:
-      - develop
       - master
   push:
     branches:
-      - develop
       - master
 
-uses: actions/hello-world-docker-action@master
-with:
-  who-to-greet: 'Mona the Octocat'
+jobs:
+  autopep8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: autopep8
+        id: autopep8
+        uses: actions/hello-world-docker-action@master
+        with:
+          who-to-greet: 'Mona the Octocat'
