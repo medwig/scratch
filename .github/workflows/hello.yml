@@ -1,4 +1,4 @@
-name: branch-cleanup
+name: hello
 on:
   pull_request:
     branches:
