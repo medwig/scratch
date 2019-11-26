@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  autopep8:
+  hello:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
