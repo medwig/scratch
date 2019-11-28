@@ -1,10 +1,8 @@
-name: autopep8
+name: lint
 on: pull_request
 
 jobs:
-
-
-  black:
+   black:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -17,18 +15,7 @@ jobs:
       - name: Black
         run: black --check --diff .
 
-        #  black:
-        #    runs-on: ubuntu-latest
-        #    steps:
-        #      - uses: actions/checkout@v1
-        #      - name: Black
-        #        uses: actions/setup-python@v1
-        #        working-directory: ./api
-        #        with:
-        #          python-version: '3.6'
-        #      - run: black --check .
-
-  autopep8:
+    autopep8:
     # Check if the PR is not raised by this workflow and is not from a fork
     if: startsWith(github.head_ref, 'autopep8-patches') == false && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
