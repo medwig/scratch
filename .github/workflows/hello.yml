@@ -9,6 +9,7 @@ on:
 
 jobs:
   helloworld:
+    name: 'Hello Bash'
     env:
       foo: 'foobar'
     runs-on: ubuntu-latest
@@ -18,17 +19,22 @@ jobs:
         #        env:
         #          GITHUB_REF: The
         #          Last_Name: Octocat
-  hello:
-    needs: helloworld
-    env:
-      foo: 'foobar'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: hello
-        id: hello
-        uses: actions/hello-world-docker-action@master
-        with:
-          who-to-greet: {{ job.env.foo }}
 
 
+
+
+        #  hello:
+        #    name: 'Hello Action'
+        #    needs: helloworld
+        #    env:
+        #      foo: 'foobar'
+        #    runs-on: ubuntu-latest
+        #    steps:
+        #      - uses: actions/checkout@v1
+        #      - name: hello
+        #        id: hello
+        #        uses: actions/hello-world-docker-action@master
+        #        with:
+        #          who-to-greet: {{ job.env.foo }}
+        #
+        #
