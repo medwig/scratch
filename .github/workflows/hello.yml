@@ -8,7 +8,18 @@ on:
       - master
 
 jobs:
+  helloworld:
+    env:
+      foo: 'foobar'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo Hello world $foo, $GITHUB_REF, $GITHUB_SHA
+        #        env:
+        #          GITHUB_REF: The
+        #          Last_Name: Octocat
   hello:
+    needs: helloworld
     env:
       foo: 'foobar'
     runs-on: ubuntu-latest
@@ -20,11 +31,4 @@ jobs:
         with:
           who-to-greet: {{ job.env.foo }}
 
-  helloworld:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hello world
-        run: echo Hello world $GITHUB_REF, $GITHUB_SHA
-        #        env:
-        #          GITHUB_REF: The
-        #          Last_Name: Octocat
+
