@@ -8,7 +8,7 @@ jobs:
       - name: Install black
         working-directory: ./api
         run: |
-          python3.6 -m pip install black
+          pip install black
           black --check .
 
   autopep8:
