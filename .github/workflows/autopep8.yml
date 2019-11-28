@@ -1,6 +1,16 @@
 name: autopep8
 on: pull_request
 jobs:
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install black
+        working-directory: ./api
+        run: |
+          python3.6 -m pip install black
+          black --check .
+
   autopep8:
     # Check if the PR is not raised by this workflow and is not from a fork
     if: startsWith(github.head_ref, 'autopep8-patches') == false && github.event.pull_request.head.repo.full_name == github.repository
