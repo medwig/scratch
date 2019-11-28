@@ -9,6 +9,8 @@ on:
 
 jobs:
   hello:
+    env:
+      foo: 'foobar'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -16,7 +18,7 @@ jobs:
         id: hello
         uses: actions/hello-world-docker-action@master
         with:
-          who-to-greet: 'Mona the Octocat: $GITHUB_REF, $GITHUB_SHA'
+          who-to-greet: {{ job.env.foo }}
 
   helloworld:
     runs-on: ubuntu-latest
