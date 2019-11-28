@@ -5,11 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install black
+      - name: Black
+        uses: actions/setup-python@v1
         working-directory: ./api
-        run: |
-          pip install black
-          black --check .
+        with:
+          python-version: '3.6'
+      - run: black --check .
 
   autopep8:
     # Check if the PR is not raised by this workflow and is not from a fork
